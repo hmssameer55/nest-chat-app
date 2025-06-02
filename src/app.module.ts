@@ -6,7 +6,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { appConfig } from './config/app.config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
+import { ChatModule } from './chat/chat.module';
+import { MessageModule } from './message/message.module';
+import { User } from './users/user.entity';
 
 @Module({
   imports: [
@@ -30,10 +32,11 @@ import { UsersModule } from './users/users.module';
           autoLoadEntities: true,
         };
       },
-      
     }),
     AuthModule,
     UsersModule,
+    ChatModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
