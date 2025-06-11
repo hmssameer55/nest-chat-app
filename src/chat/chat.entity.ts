@@ -6,6 +6,7 @@ import {
   JoinColumn,
   JoinTable,
   ManyToMany,
+  ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -16,14 +17,17 @@ export class Chat {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToMany(() => User)
-  @JoinTable()
-  participants: User[];
+  // Only two users per chat
+  @ManyToOne(() => User, { eager: true })
+  user1: User;
+
+  @ManyToOne(() => User, { eager: true })
+  user2: User;
 
   @OneToMany(() => Message, (message) => message.chat)
   messages: Message[];
 
-  @OneToOne(() => Message, { nullable: true })
+  @OneToOne(() => Message, { nullable: true, eager: true })
   @JoinColumn()
   lastMessage: Message;
 

@@ -10,6 +10,6 @@ async function bootstrap() {
       forbidNonWhitelisted: true, //adding this will throw an error in unnecessary attr are passed by client
     }),
   );
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 8000);
 }
 bootstrap();

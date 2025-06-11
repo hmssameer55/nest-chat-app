@@ -8,7 +8,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ChatModule } from './chat/chat.module';
 import { MessageModule } from './message/message.module';
-import { User } from './users/user.entity';
 
 @Module({
   imports: [
