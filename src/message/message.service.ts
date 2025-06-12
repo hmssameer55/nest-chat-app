@@ -60,7 +60,7 @@ export class MessageService {
   }
 
   public async getMessages(chatId: string): Promise<Message[]> {
-    const chat = await this.chatRepo.findOne({ where: { id: chatId } });
+    const chat = await this.chatService.getChatById(chatId);
     if (!chat) throw new NotFoundException('Chat not found');
 
     return this.messageRepo.find({

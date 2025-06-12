@@ -11,13 +11,8 @@ export class ChatController {
     return this.chatService.createChat(chatData);
   }
 
-  @Get()
+  @Get(':uid')
   async getAllChats(@Param('uid') uid: string) {
     return this.chatService.getAllChatsForUser(uid);
-  }
-
-  @Get(':id')
-  async getChatById(@Param('id') id: string) {
-    return this.chatService.getChatById(id);
   }
 }
